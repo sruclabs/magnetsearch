@@ -135,6 +135,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (submitBtn) submitBtn.disabled = true;
       setStatus('Sending…');
 
+      // Shape the inbox appearance: informative subject, sender name, direct reply-to.
+      // Strips newlines to keep mail headers safe.
+      const clean = (v, max) => (v || '').replace(/[\r\n]+/g, ' ').trim().slice(0, max);
+      const senderName = clean(contactForm.querySelector('#contact-name')?.value, 80);
+      const senderEmail = clean(contactForm.querySelector('#contact-email')?.value, 120);
+      const topic = clean(contactForm.querySelector('#contact-topic')?.value, 60);
+      const subjectField = contactForm.querySelector('input[name="subject"]');
+      const fromNameField = contactForm.querySelector('input[name="from_name"]');
+      const replyToField = contactForm.querySelector('input[name="replyto"]');
+      if (subjectField && senderName) {
+        subjectField.value = `[Magnet Search] ${topic || 'Message'} — ${senderName}`.slice(0, 140);
+      }
+      if (fromNameField && senderName) fromNameField.value = senderName;
+      if (replyToField && senderEmail) replyToField.value = senderEmail;
+
       try {
         const res = await fetch(contactForm.action, {
           method: 'POST',
