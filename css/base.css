@@ -52,7 +52,7 @@ img, svg {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-primary-bright);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
@@ -247,7 +247,7 @@ p {
 
 .badge-blue {
   background: rgba(94, 106, 210, 0.14);
-  color: #A5B4FC;
+  color: var(--color-primary-bright);
   border: 1px solid rgba(94, 106, 210, 0.28);
 }
 

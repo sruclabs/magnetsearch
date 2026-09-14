@@ -52,6 +52,9 @@
   /* Core Brand Colors & Accents */
   --color-primary: #5E6AD2;
   --color-primary-variant: #4B55AC;
+  /* Bright indigo for text/icons on dark surfaces (10:1 on base).
+     Buttons keep --color-primary so white text stays at 4.7:1. */
+  --color-primary-bright: #A5B4FC;
   --color-accent-cyan: #828FFF;
   --color-accent: #5E6AD2;
   --color-accent-hover: #828FFF;
@@ -146,6 +149,9 @@
   /* Core Brand Colors (Crisp, high-visibility Bitnomial warm orange accents) */
   --color-primary: #D9480F;
   --color-primary-variant: #BF360C;
+  /* Alias: light theme keeps its existing accent everywhere bright is used,
+     so this pass changes dark mode only. */
+  --color-primary-bright: var(--color-primary);
   --color-accent-cyan: #EA580C;
   --color-seed-green: #047857;
   --color-leech-orange: #B45309;

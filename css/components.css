@@ -70,7 +70,7 @@
 }
 
 .nav-link.active {
-  color: var(--color-primary);
+  color: var(--color-primary-bright);
   font-weight: 600;
 }
 
