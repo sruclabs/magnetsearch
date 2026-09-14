@@ -75,12 +75,20 @@
 }
 
 .nav-link.nav-link-premium {
-  color: var(--color-premium-gold-text);
+  color: var(--color-text-secondary);
   font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--color-premium-gold);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.nav-link.nav-link-premium:hover {
+  color: var(--color-text-primary);
 }
 
 .nav-link.nav-link-premium.active {
-  color: var(--color-premium-gold);
+  color: var(--color-primary-bright);
 }
 
 /* Header Controls & Theme Toggle */
