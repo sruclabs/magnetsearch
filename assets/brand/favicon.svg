@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108" fill="none">
+  <!-- Rounded dark container matching Android adaptive icon background -->
+  <rect width="108" height="108" rx="24" fill="#0F172A" />
+  <rect width="106" height="106" x="1" y="1" rx="23" stroke="#334155" stroke-width="1.5" />
+  
+  <!-- Outer U arc and vertical prongs -->
+  <path d="M37 45 V57 A17 17 0 0 0 71 57 V45" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Inner U arc and vertical prongs -->
+  <path d="M46 45 V57 A8 8 0 0 0 62 57 V45" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Left pole cap -->
+  <path d="M37 45 H46 V34 H37 Z" fill="#3880FF" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+  
+  <!-- Right pole cap -->
+  <path d="M62 45 H71 V34 H62 Z" fill="#3880FF" stroke="#FFFFFF" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

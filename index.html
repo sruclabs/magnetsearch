@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Magnet Search — Fast, Private Multi-Source Magnet Search for Android</title>
+  <meta name="description" content="Fast, private multi-source magnet search and discovery utility for Android. Search public indexes and open digital archives from a unified interface with zero server tracking.">
+  <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
+  
+  <link rel="stylesheet" href="css/tokens.css?v=13">
+  <link rel="stylesheet" href="css/base.css?v=13">
+  <link rel="stylesheet" href="css/components.css?v=13">
+  <link rel="stylesheet" href="css/pages.css?v=13">
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="site-header">
+    <div class="container">
+      <a href="./" class="brand" aria-label="Magnet Search Home">
+        <img src="assets/brand/app-icon.svg" alt="Magnet Search icon" class="brand-icon" width="36" height="36">
+        <span class="brand-text">Magnet Search</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="./" class="nav-link active">Home</a></li>
+          <li><a href="premium/" class="nav-link nav-link-premium">Premium</a></li>
+          <li><a href="contact/" class="nav-link">Contact Us</a></li>
+          <li><a href="terms/" class="nav-link">Terms</a></li>
+          <li><a href="privacy/" class="nav-link">Privacy Policy</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Controls: Theme Switch & Mobile Menu Toggle -->
+      <div class="header-actions">
+        <button class="theme-toggle-btn" aria-label="Switch to light theme" title="Toggle theme">
+          <!-- Sun Icon (shown in dark mode to switch to light) -->
+          <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- Moon Icon (shown in light mode to switch to dark) -->
+          <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Nav Toggle -->
+        <button class="mobile-nav-toggle" aria-expanded="false" aria-label="Open navigation menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
+    <a href="./" class="nav-link active">Home</a>
+    <a href="premium/" class="nav-link nav-link-premium">Premium</a>
+    <a href="contact/" class="nav-link">Contact Us</a>
+    <a href="terms/" class="nav-link">Terms</a>
+    <a href="privacy/" class="nav-link">Privacy Policy</a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title reveal">Fast, Private Magnet Search</h1>
+          <p class="hero-subtitle reveal">
+            Search multiple public torrent sources and digital archives in one simple app. No tracking, no middleman servers.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#features" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              See Features
+            </a>
+            <a href="premium/" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-premium-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+              View Premium Plans
+            </a>
+          </div>
+        </div>
+
+        <!-- UI Preview Element -->
+        <div class="hero-preview center-block" aria-hidden="true">
+          <div class="search-preview-header">
+            <div class="preview-app-identity">
+              <span class="preview-app-dot"></span>
+              <span class="preview-app-name">Magnet Search for Android</span>
+            </div>
+            <div class="search-window-status">Direct Search &bull; 4 Sources</div>
+          </div>
+
+          <div class="search-bar-mock">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span class="search-query-text">linux kernel archive</span>
+            <span class="search-status-tag">32 results</span>
+          </div>
+
+          <div class="source-chips-mock">
+            <span class="source-chip active">All (4)</span>
+            <span class="source-chip">Open Torrent Index</span>
+            <span class="source-chip">Community Swarm</span>
+            <span class="source-chip">Internet Archive</span>
+            <span class="source-chip">Research &amp; Science</span>
+          </div>
+
+          <div class="preview-results-list">
+            <!-- Result 1: Open Torrent Index -->
+            <div class="preview-result-item">
+              <div class="result-main">
+                <div class="result-title">Ubuntu 24.04 LTS Desktop (Noble Numbat) x86_64 ISO</div>
+                <div class="result-meta">
+                  <span class="meta-badge source-open">Open Torrent Index</span>
+                  <span class="meta-category">Software</span>
+                  <span class="meta-stat">5.8 GB</span>
+                  <span class="meta-stat meta-seeds">▲ 1,840</span>
+                  <span class="meta-stat meta-leech">▼ 112</span>
+                  <span class="meta-hash code-val">xt=urn:btih:3b8c…9f12</span>
+                </div>
+              </div>
+              <div class="result-actions">
+                <span class="result-btn-mock primary">Open Magnet</span>
+                <span class="result-btn-mock">Copy</span>
+              </div>
+            </div>
+
+            <!-- Result 2: Internet Archive -->
+            <div class="preview-result-item">
+              <div class="result-main">
+                <div class="result-title">NASA Apollo Lunar Surface Journal Audio &amp; Transcripts</div>
+                <div class="result-meta">
+                  <span class="meta-badge source-archive">Internet Archive</span>
+                  <span class="meta-category">Audio</span>
+                  <span class="meta-stat">1.4 GB</span>
+                  <span class="meta-stat meta-seeds">▲ 86</span>
+                  <span class="meta-stat meta-leech">▼ 4</span>
+                  <span class="meta-hash code-val">xt=urn:btih:7d2a…4e81</span>
+                </div>
+              </div>
+              <div class="result-actions">
+                <span class="result-btn-mock primary">Open Magnet</span>
+                <span class="result-btn-mock">Copy</span>
+              </div>
+            </div>
+
+            <!-- Result 3: Research & Science -->
+            <div class="preview-result-item">
+              <div class="result-main">
+                <div class="result-title">High-Energy Physics Open Data Archive (Run 2 Complete Set)</div>
+                <div class="result-meta">
+                  <span class="meta-badge source-arxiv">Research &amp; Science</span>
+                  <span class="meta-category">Academic</span>
+                  <span class="meta-stat">420 MB</span>
+                  <span class="meta-stat meta-seeds">▲ 41</span>
+                  <span class="meta-stat meta-leech">▼ 2</span>
+                  <span class="meta-hash code-val">xt=urn:btih:1a0f…c634</span>
+                </div>
+              </div>
+              <div class="result-actions">
+                <span class="result-btn-mock primary">Open Magnet</span>
+                <span class="result-btn-mock">Copy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section id="features" class="section section-dark">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Features</div>
+          <h2 class="section-title">Built to Make Searching Quick and Clean</h2>
+          <p>Made for Android with direct queries and zero user tracking.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="card feature-card reveal">
+            <div class="feature-top-row">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <span class="feature-tag-badge">Multi-Source</span>
+            </div>
+            <h3>Search Multiple Sources at Once</h3>
+            <p>Runs your search across all your enabled sources at the same time, combining results into one clean list with no duplicate clutter.</p>
+            <div class="feature-specs">
+              <span class="spec-chip">Simultaneous searches</span>
+              <span class="spec-chip">Easy source toggles</span>
+              <span class="spec-chip">Quick filters</span>
+            </div>
+          </div>
+
+          <div class="card feature-card reveal">
+            <div class="feature-top-row">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                </svg>
+              </div>
+              <span class="feature-tag-badge">One-Tap Handoff</span>
+            </div>
+            <h3>Opens Right in Your Torrent App</h3>
+            <p>One tap sends the magnet link straight to whichever torrent app you use on your phone—like LibreTorrent, Flud, or BiglyBT.</p>
+            <div class="feature-specs">
+              <span class="spec-chip">Android app chooser</span>
+              <span class="spec-chip">Copy link to clipboard</span>
+              <span class="spec-chip">No battery drain in background</span>
+            </div>
+          </div>
+
+          <div class="card feature-card reveal">
+            <div class="feature-top-row">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </div>
+              <span class="feature-tag-badge">Saved on Device</span>
+            </div>
+            <h3>Save Bookmarks and Favorites</h3>
+            <p>Bookmark links and files directly on your phone. Everything stays on your device—no accounts, passwords, or cloud sync needed.</p>
+            <div class="feature-specs">
+              <span class="spec-chip">Saved on device</span>
+              <span class="spec-chip">No sign-up required</span>
+              <span class="spec-chip">Search your saved links</span>
+            </div>
+          </div>
+
+          <div class="card feature-card reveal">
+            <div class="feature-top-row">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="21" y1="10" x2="7" y2="10"></line>
+                  <line x1="21" y1="6" x2="3" y2="6"></line>
+                  <line x1="21" y1="14" x2="11" y2="14"></line>
+                  <line x1="21" y1="18" x2="15" y2="18"></line>
+                </svg>
+              </div>
+              <span class="feature-tag-badge">Flexible Sorting</span>
+            </div>
+            <h3>Sort the Way You Want</h3>
+            <p>Find what you need by sorting results by relevance, active seeders, file size, or when it was posted.</p>
+            <div class="feature-specs">
+              <span class="spec-chip">Smart relevance</span>
+              <span class="spec-chip">Sort by seeder count</span>
+              <span class="spec-chip">Filter by file size</span>
+            </div>
+          </div>
+
+          <div class="card feature-card reveal">
+            <div class="feature-top-row">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+              </div>
+              <span class="feature-tag-badge">Details</span>
+            </div>
+            <h3>Check Hashes and Trackers Before Opening</h3>
+            <p>Take a quick look at info-hashes, tracker lists, categories, and post dates before opening or copying any magnet link.</p>
+            <div class="feature-specs">
+              <span class="spec-chip">Check info-hash</span>
+              <span class="spec-chip">Tracker list</span>
+              <span class="spec-chip">Category tags</span>
+            </div>
+          </div>
+
+          <div class="card feature-card reveal">
+            <div class="feature-top-row">
+              <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+              </div>
+              <span class="feature-tag-badge">Privacy First</span>
+            </div>
+            <h3>No Tracking, Period</h3>
+            <p>Your searches go directly from your phone to the source over HTTPS. We don't run an analytics server in the middle, and we never log your searches.</p>
+            <div class="feature-specs">
+              <span class="spec-chip">Direct connection</span>
+              <span class="spec-chip">No search logs</span>
+              <span class="spec-chip">Optional biometric lock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Providers Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Search Sources</div>
+          <h2 class="section-title">Where the App Searches</h2>
+          <p>Magnet Search queries independent public indexes and open libraries. You can turn any source on or off in Settings.</p>
+        </div>
+
+        <div class="sources-grid">
+          <div class="card source-card reveal">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
+              </svg>
+            </div>
+            <div class="source-details">
+              <div class="source-header-row">
+                <h3>Open Torrent Index</h3>
+                <span class="source-status-badge">Public DHT</span>
+              </div>
+              <p>Searches large public torrent catalogs for verified magnet links with working trackers, so your downloads connect smoothly.</p>
+              <div class="source-capabilities">
+                <span class="spec-chip">Open source &amp; media</span>
+                <span class="spec-chip">Working trackers</span>
+                <span class="spec-chip">Instant magnet links</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card source-card reveal">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div class="source-details">
+              <div class="source-header-row">
+                <h3>Community Swarm Index</h3>
+                <span class="source-status-badge">Live Swarm</span>
+              </div>
+              <p>Pulls live seeder and peer numbers directly from distributed tracker networks, so you can see if a file is healthy before downloading.</p>
+              <div class="source-capabilities">
+                <span class="spec-chip">Live seeders</span>
+                <span class="spec-chip">Active peer counts</span>
+                <span class="spec-chip">Duplicate removal</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card source-card reveal">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <div class="source-details">
+              <div class="source-header-row">
+                <h3>Internet Archive</h3>
+                <span class="source-status-badge">Digital Library</span>
+              </div>
+              <p>Searches millions of free books, historical recordings, public documents, and classic software hosted on archive.org.</p>
+              <div class="source-capabilities">
+                <span class="spec-chip">Public domain books</span>
+                <span class="spec-chip">Historical audio &amp; video</span>
+                <span class="spec-chip">Cultural archives</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card source-card reveal">
+            <div class="icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <div class="source-details">
+              <div class="source-header-row">
+                <h3>Research &amp; Science Index</h3>
+                <span class="source-status-badge">arXiv Preprints</span>
+              </div>
+              <p>Searches open scientific papers, preprints, and research datasets from arXiv.org, complete with author names and abstracts.</p>
+              <div class="source-capabilities">
+                <span class="spec-chip">arXiv.org papers</span>
+                <span class="spec-chip">Research preprints</span>
+                <span class="spec-chip">Open science datasets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="disclaimer-card" style="margin-top: var(--space-32); text-align: center;">
+          Magnet Search doesn't host or download files. It simply searches public third-party indexes for you.
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Protection Overview -->
+    <section class="section section-dark">
+      <div class="container">
+        <div class="callout-box">
+          <div class="callout-content">
+            <span class="badge badge-blue" style="margin-bottom: var(--space-12);">Built-in Security</span>
+            <h2>On-Device Privacy Protection</h2>
+            <p>
+              Magnet Search never saves your queries to any server. You can also turn on on-device privacy settings to lock the app and keep your searches private.
+            </p>
+            <div class="privacy-specs-list">
+              <div class="privacy-spec-item">
+                <span class="spec-dot"></span>
+                <span><strong>Direct Connection:</strong> Your phone talks directly to the sources you pick. There's no proxy server reading your queries in between.</span>
+              </div>
+              <div class="privacy-spec-item">
+                <span class="spec-dot"></span>
+                <span><strong>No Account Needed:</strong> You don't have to create an account, enter an email, or sign in to use the app.</span>
+              </div>
+            </div>
+            <div class="disclaimer-card" style="margin-top: var(--space-20);">
+              Privacy Protection keeps your searches and saved links safe on your phone. It doesn't hide your internet traffic from your ISP or act as a VPN.
+            </div>
+          </div>
+          <div class="callout-controls">
+            <h3 class="controls-heading">Privacy Settings</h3>
+            <ul class="privacy-checklist">
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>App Lock:</strong>
+                  <span>Unlock the app using your fingerprint, face unlock, or device PIN</span>
+                </div>
+              </li>
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Private Search Mode:</strong>
+                  <span>Stops recent searches from being saved to your device</span>
+                </div>
+              </li>
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Hide Recent Searches:</strong>
+                  <span>Hides past search suggestions from under the search bar</span>
+                </div>
+              </li>
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Protect Saved Favorites:</strong>
+                  <span>Requires fingerprint or PIN verification before showing your bookmarked links</span>
+                </div>
+              </li>
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Block Screenshots:</strong>
+                  <span>Prevents screenshots and screen recordings while using the app</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Premium Banner Teaser -->
+    <section class="section">
+      <div class="container">
+        <div class="card card-gold premium-home-teaser">
+          <div class="teaser-content">
+            <span class="badge badge-gold" style="margin-bottom: var(--space-12);">Optional Upgrade</span>
+            <h2>Magnet Search Premium</h2>
+            <p>
+              Get more out of your searches with unlimited saved favorites, advanced sorting by seeders and size, 6 premium themes (including AMOLED Pure Black), and zero ads.
+            </p>
+          </div>
+          <div class="teaser-action">
+            <a href="premium/" class="btn btn-gold">
+              View Premium Plans
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="./" class="brand">
+            <img src="assets/brand/app-icon.svg" alt="Magnet Search" class="brand-icon" width="32" height="32">
+            <span class="brand-text">Magnet Search</span>
+          </a>
+          <p>Fast, private, multi-source magnet search app for Android.</p>
+        </div>
+
+        <div class="footer-nav">
+          <div class="footer-col">
+            <span class="footer-col-title">Product</span>
+            <a href="./" class="footer-link">Home</a>
+            <a href="premium/" class="footer-link">Premium</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Legal &amp; Policy</span>
+            <a href="terms/" class="footer-link">Terms &amp; Conditions</a>
+            <a href="privacy/" class="footer-link">Privacy Policy</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Support</span>
+            <a href="contact/" class="footer-link">Contact Us</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Magnet Search. All rights reserved.</div>
+        <div>Magnet Search is a search app and does not host or share torrent files.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

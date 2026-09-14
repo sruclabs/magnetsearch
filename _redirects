@@ -1,0 +1,6 @@
+/* Netlify Clean Redirects */
+/* Ensure directory root accesses without trailing slashes cleanly rewrite */
+/premium    /premium/    301
+/contact    /contact/    301
+/terms      /terms/      301
+/privacy    /privacy/    301

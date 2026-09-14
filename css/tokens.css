@@ -1,0 +1,193 @@
+/* Design tokens derived directly from Android app theme:
+ * Color.kt, AppThemes.kt, and Material Design 3 specs
+ */
+
+/*
+ * Inter Font Family
+ * Copyright (c) 2016-2024 The Inter Project Authors (https://github.com/rsms/inter)
+ * Licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org)
+ * See /assets/fonts/LICENSE.txt for full terms.
+ */
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter_regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter_medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter_semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter_bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('../assets/fonts/inter_extra_bold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Core Brand Colors & Accents */
+  --color-primary: #5E6AD2;
+  --color-primary-variant: #4B55AC;
+  --color-accent-cyan: #828FFF;
+  --color-accent: #5E6AD2;
+  --color-accent-hover: #828FFF;
+  --color-seed-green: #10B981;
+  --color-leech-orange: #F59E0B;
+
+  /* Surfaces & Foundation (Reference Dark Palette: #08090A Background, #111214 Surface) */
+  --color-bg-base: #08090A;
+  --color-bg-dark: #0D0E10;
+  --color-surface-card: #111214;
+  --color-surface-elevated: #181A1D;
+  --color-surface-variant: #202226;
+
+  /* Structural Dividers & Precision Borders (rgba(255,255,255,0.10)) */
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  --color-border-focus: #828FFF;
+
+  /* Architectural Grid Lines (Clean and subtle on #08090A, 55px size) */
+  --grid-line: rgba(255, 255, 255, 0.05);
+  --grid-line-glow: rgba(94, 106, 210, 0.08);
+  --grid-size: 55px;
+  --font-family-mono: ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, Consolas, monospace;
+
+  /* Typography (Reference: #F5F5F5 Primary Text, #8A8F98 Secondary Text) */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #8A8F98;
+  --color-text-muted: #626773;
+
+  /* Premium Gold Suite */
+  --color-premium-gold: #FFB300;
+  --color-premium-gold-dark: #D97706;
+  --color-premium-gold-text: #FBBF24;
+  --color-premium-gold-container: rgba(255, 179, 0, 0.10);
+  --color-premium-gold-border: rgba(255, 179, 0, 0.35);
+  --color-premium-gold-glow: rgba(255, 179, 0, 0.14);
+
+  /* Spacing Scale */
+  --space-2: 0.125rem; /* 2px */
+  --space-4: 0.25rem;  /* 4px */
+  --space-8: 0.5rem;   /* 8px */
+  --space-12: 0.75rem; /* 12px */
+  --space-16: 1rem;    /* 16px */
+  --space-20: 1.25rem; /* 20px */
+  --space-24: 1.5rem;  /* 24px */
+  --space-32: 2rem;    /* 32px */
+  --space-40: 2.5rem;  /* 40px */
+  --space-48: 3rem;    /* 48px */
+  --space-64: 4rem;    /* 64px */
+  --space-80: 5rem;    /* 80px */
+
+  /* Radii (Purpose-driven, restrained: no inflated toy-like rounding) */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 140ms ease-out;
+  --transition-normal: 200ms ease-out;
+  --transition-slow: 300ms ease-out;
+
+  /* Shadows & Elevation (Dark mode: crisp ambient depth) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 4px 16px -2px rgba(0, 0, 0, 0.45), 0 2px 6px -1px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 10px 25px -4px rgba(0, 0, 0, 0.55), 0 4px 10px -2px rgba(0, 0, 0, 0.35);
+  --shadow-window: 0 16px 36px -6px rgba(0, 0, 0, 0.65), 0 6px 14px -3px rgba(0, 0, 0, 0.4);
+
+  /* Layout */
+  --max-width-content: 1140px;
+  --max-width-narrow: 820px;
+  --nav-height: 64px;
+
+  /* Solid box and surface backgrounds (zero bleed-through from background grid) */
+  --color-header-bg: rgba(8, 9, 10, 0.95);
+  --color-section-dark-bg: transparent;
+  --color-disclaimer-bg: #111214;
+  --color-result-item-bg: #111214;
+}
+
+/* ==========================================================================
+   Clean Light Theme
+   Crisp architectural background, fine slate borders, and subtle Bitnomial-inspired
+   warm orange accents (#E65100 / #F97316).
+   Dark theme stays completely untouched when data-theme is "dark" or unspecified.
+   ========================================================================== */
+[data-theme="light"] {
+  /* Core Brand Colors (Crisp, high-visibility Bitnomial warm orange accents) */
+  --color-primary: #D9480F;
+  --color-primary-variant: #BF360C;
+  --color-accent-cyan: #EA580C;
+  --color-seed-green: #047857;
+  --color-leech-orange: #B45309;
+
+  /* Surfaces & Foundation (Defined, crisp layers for strong separation) */
+  --color-bg-base: #F8FAFC;
+  --color-bg-dark: #EEF2F6;
+  --color-surface-card: #FFFFFF;
+  --color-surface-elevated: #F1F5F9;
+  --color-surface-variant: #E2E8F0;
+
+  /* Structural Dividers & Precision Borders (Sharp, highly visible edges) */
+  --color-border: #CBD5E1;
+  --color-border-subtle: #E2E8F0;
+  --color-border-focus: #D9480F;
+
+  /* Architectural Grid Lines (Exact light graph box pattern, 55px size) */
+  --grid-line: #E2E8F0;
+  --grid-line-glow: rgba(217, 72, 15, 0.08);
+  --grid-size: 55px;
+
+  /* Typography (Deep, high-contrast, comfortable legibility) */
+  --color-text-primary: #0A0F1D;
+  --color-text-secondary: #334155;
+  --color-text-muted: #475569;
+
+  /* Premium Gold Suite (Preserved intact for Premium branding, crisp contrast) */
+  --color-premium-gold: #D97706;
+  --color-premium-gold-dark: #92400E;
+  --color-premium-gold-text: #92400E;
+  --color-premium-gold-container: rgba(245, 158, 11, 0.14);
+  --color-premium-gold-border: rgba(217, 119, 6, 0.45);
+  --color-premium-gold-glow: rgba(217, 119, 6, 0.16);
+
+  /* Shadows & Elevation (Light mode: high-visibility architectural separation from grid) */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 4px 6px -1px rgba(15, 23, 42, 0.09), 0 2px 4px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(15, 23, 42, 0.04);
+  --shadow-card-hover: 0 12px 20px -3px rgba(15, 23, 42, 0.12), 0 4px 6px -2px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(15, 23, 42, 0.06);
+  --shadow-window: 0 20px 30px -6px rgba(15, 23, 42, 0.12), 0 8px 12px -4px rgba(15, 23, 42, 0.07), 0 0 0 1px rgba(15, 23, 42, 0.05);
+
+  /* Header surface transparency */
+  --color-header-bg: rgba(248, 250, 252, 0.95);
+  --color-section-dark-bg: transparent;
+  --color-disclaimer-bg: #EEF2F6;
+  --color-result-item-bg: #FFFFFF;
+}
