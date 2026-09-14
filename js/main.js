@@ -207,4 +207,126 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCount();
     }
   }
+
+  // 5. Back to Top button: reveal after scrolling, smooth-scroll home
+  const toTopBtn = document.querySelector('.to-top-btn');
+  if (toTopBtn) {
+    const showAfter = 600;
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const updateToTop = () => {
+      toTopBtn.classList.toggle('show', window.scrollY > showAfter);
+    };
+    window.addEventListener('scroll', updateToTop, { passive: true });
+    updateToTop();
+    toTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
+  // 6. Custom topic picker: enhances the native select on fine-pointer devices.
+  // The native select stays the submitted value carrier (no-JS POST and native
+  // validation keep working); the custom UI is presentation and interaction only.
+  const customSelect = document.querySelector('[data-custom-select]');
+  const nativeTopic = document.getElementById('contact-topic');
+  const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
+  if (customSelect && nativeTopic && finePointer) {
+    const selectBtn = customSelect.querySelector('.custom-select-btn');
+    const selectList = customSelect.querySelector('.custom-select-list');
+    const selectValue = customSelect.querySelector('#custom-select-value');
+    const selectOptions = Array.from(selectList.querySelectorAll('[role="option"]'));
+    let typeBuffer = '';
+    let typeTimer = null;
+
+    // Reveal the custom UI; take the native select out of the tab order
+    nativeTopic.classList.add('native-select-hidden');
+    nativeTopic.tabIndex = -1;
+    nativeTopic.setAttribute('aria-hidden', 'true');
+    selectBtn.hidden = false;
+
+    const markSelected = () => {
+      selectOptions.forEach((opt) => {
+        const selected = opt.dataset.value === nativeTopic.value;
+        opt.setAttribute('aria-selected', selected ? 'true' : 'false');
+        if (selected) selectValue.textContent = opt.textContent;
+      });
+    };
+
+    const setOpen = (open) => {
+      selectBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      selectList.hidden = !open;
+    };
+
+    const chooseOption = (opt) => {
+      nativeTopic.value = opt.dataset.value;
+      markSelected();
+      setOpen(false);
+      selectBtn.focus();
+    };
+
+    selectBtn.addEventListener('click', () => {
+      const willOpen = selectList.hidden;
+      setOpen(willOpen);
+      if (willOpen) {
+        const current = selectList.querySelector('[aria-selected="true"]');
+        if (current) current.focus();
+      }
+    });
+
+    selectBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        setOpen(true);
+        const current = selectList.querySelector('[aria-selected="true"]');
+        if (current) current.focus();
+      } else if (e.key === 'Escape') {
+        setOpen(false);
+      }
+    });
+
+    selectOptions.forEach((opt) => {
+      opt.tabIndex = -1;
+      opt.addEventListener('click', () => chooseOption(opt));
+      opt.addEventListener('keydown', (e) => {
+        const i = selectOptions.indexOf(opt);
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          (selectOptions[i + 1] || selectOptions[0]).focus();
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          (selectOptions[i - 1] || selectOptions[selectOptions.length - 1]).focus();
+        } else if (e.key === 'Home') {
+          e.preventDefault();
+          selectOptions[0].focus();
+        } else if (e.key === 'End') {
+          e.preventDefault();
+          selectOptions[selectOptions.length - 1].focus();
+        } else if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          chooseOption(opt);
+        } else if (e.key === 'Escape') {
+          setOpen(false);
+          selectBtn.focus();
+        } else if (e.key.length === 1) {
+          typeBuffer += e.key.toLowerCase();
+          clearTimeout(typeTimer);
+          typeTimer = setTimeout(() => { typeBuffer = ''; }, 500);
+          const match = selectOptions.find((o) => o.textContent.toLowerCase().startsWith(typeBuffer));
+          if (match) match.focus();
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!customSelect.contains(e.target)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !selectList.hidden) {
+        setOpen(false);
+        selectBtn.focus();
+      }
+    });
+
+    markSelected();
+  }
 });

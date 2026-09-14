@@ -1,6 +1,8 @@
 /* Page Layout Helpers (replacing one-off inline styles) */
 .page-wrap {
-  padding-top: var(--space-48);
+  /* No top padding: the nested page-header already brings the 48px rhythm.
+     (Keeps text pages starting identically to Privacy/Terms.) */
+  padding-top: 0;
   padding-bottom: var(--space-64);
 }
 
@@ -52,7 +54,7 @@
 .confirm-card {
   max-width: 560px;
   text-align: center;
-  margin-top: var(--space-32);
+  margin-top: var(--space-48);
 }
 
 .confirm-icon {

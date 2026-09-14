@@ -7,10 +7,10 @@
   <meta name="description" content="Contact and support information for Magnet Search.">
   <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg">
   
-  <link rel="stylesheet" href="../css/tokens.css?v=18">
-  <link rel="stylesheet" href="../css/base.css?v=18">
-  <link rel="stylesheet" href="../css/components.css?v=18">
-  <link rel="stylesheet" href="../css/pages.css?v=18">
+  <link rel="stylesheet" href="../css/tokens.css?v=21">
+  <link rel="stylesheet" href="../css/base.css?v=21">
+  <link rel="stylesheet" href="../css/components.css?v=21">
+  <link rel="stylesheet" href="../css/pages.css?v=21">
   <meta name="theme-color" content="#08090A">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Magnet Search">
@@ -87,29 +87,20 @@
   </div>
 
   <main id="main">
-    <div class="container container-narrow page-wrap">
-      <header class="page-header page-header-compact">
-        <h1 class="page-title">Contact Us</h1>
-        <p class="lead">
-          Magnet Search is an independent, privacy-focused search app for Android. Here's how to get help or send us feedback.
-        </p>
-      </header>
-
-      <!-- Contact form: posts to Web3Forms; inbox address lives in dashboard, only the domain-locked key is here -->
-      <section class="card contact-form-card" aria-labelledby="contact-form-title">
-        <div class="contact-form-header">
-          <div class="icon-box" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-          </div>
-          <div>
-            <h2 class="contact-form-title" id="contact-form-title">Send us a message</h2>
-          </div>
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-tag">Support</div>
+          <h1 class="hero-title">Contact Us</h1>
+          <p class="lead">
+            Magnet Search is an independent, privacy-focused search app for Android. Here's how to get help or send us feedback.
+          </p>
         </div>
 
-        <form class="contact-form" action="https://api.web3forms.com/submit" method="post" data-contact-form novalidate>
+        <div class="callout-box">
+          <div class="callout-content">
+            <!-- Contact form: posts to Web3Forms; inbox address lives in dashboard, only the domain-locked key is here -->
+            <form class="contact-form" action="https://api.web3forms.com/submit" method="post" data-contact-form novalidate>
           <input type="hidden" name="access_key" value="02d6d02d-6297-4773-97e5-76fc0941b9ce">
           <input type="hidden" name="subject" value="New message from Magnet Search contact page">
           <input type="hidden" name="from_name" value="Magnet Search contact form">
@@ -126,7 +117,7 @@
               <input type="email" id="contact-email" name="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required>
             </div>
             <div class="form-field form-field-full">
-              <label for="contact-topic">Topic</label>
+              <label for="contact-topic" id="contact-topic-label">Topic</label>
               <select id="contact-topic" name="topic">
                 <option value="General question">General question</option>
                 <option value="Bug report">Bug report</option>
@@ -135,6 +126,22 @@
                 <option value="Privacy request">Privacy request</option>
                 <option value="Other">Other</option>
               </select>
+              <div class="custom-select" data-custom-select>
+                <button type="button" class="custom-select-btn" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="contact-topic-label custom-select-value" hidden>
+                  <span id="custom-select-value">General question</span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+                <ul class="custom-select-list" role="listbox" aria-labelledby="contact-topic-label" hidden>
+                  <li role="option" data-value="General question" aria-selected="true">General question</li>
+                  <li role="option" data-value="Bug report" aria-selected="false">Bug report</li>
+                  <li role="option" data-value="Feature idea" aria-selected="false">Feature idea</li>
+                  <li role="option" data-value="Premium &amp; billing" aria-selected="false">Premium &amp; billing</li>
+                  <li role="option" data-value="Privacy request" aria-selected="false">Privacy request</li>
+                  <li role="option" data-value="Other" aria-selected="false">Other</li>
+                </ul>
+              </div>
             </div>
             <div class="form-field form-field-full">
               <label for="contact-message">Message</label>
@@ -162,22 +169,58 @@
           <p class="form-note">Your details are only used to reply to your message.</p>
           <p class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
-      </section>
+          </div>
+          <div class="callout-controls">
+            <h3 class="controls-heading">What to include</h3>
+            <ul class="privacy-checklist">
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Bug reports:</strong>
+                  <span>Your app version, Android version, and steps to reproduce</span>
+                </div>
+              </li>
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Premium &amp; billing:</strong>
+                  <span>Your Google Play order ID so the purchase can be found</span>
+                </div>
+              </li>
+              <li class="checklist-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <div>
+                  <strong>Feature ideas:</strong>
+                  <span>What you're trying to do and what's missing today</span>
+                </div>
+              </li>
+            </ul>
+            <h3 class="controls-heading">Your privacy</h3>
+            <div class="privacy-specs-list">
+              <div class="privacy-spec-item">
+                <span class="spec-dot"></span>
+                <span><strong>Reply only:</strong> Your details are only used to answer your message.</span>
+              </div>
+              <div class="privacy-spec-item">
+                <span class="spec-dot"></span>
+                <span><strong>Keep it safe:</strong> Never send passwords, payment numbers, or other secrets.</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="disclaimer-card disclaimer-left">
+        <div class="disclaimer-card">
         <strong>Note:</strong> Magnet Search does not host or manage any torrent files or servers. If you have questions about content found through third-party search providers, please reach out to those providers directly.
       </div>
 
-      <div>
-        <a href="../" class="btn btn-secondary">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="19" y1="12" x2="5" y2="12"></line>
-            <polyline points="12 19 5 12 12 5"></polyline>
-          </svg>
-          Return to Home
-        </a>
       </div>
-    </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -217,6 +260,13 @@
     </div>
   </footer>
 
-  <script src="../js/main.js?v=3"></script>
+  <button class="to-top-btn" type="button" aria-label="Back to top" title="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <script src="../js/main.js?v=5"></script>
 </body>
 </html>

@@ -355,25 +355,7 @@
   color: var(--color-text-muted);
 }
 
-/* Contact Form (UI only — no backend wired yet) */
-.contact-form-card {
-  margin-bottom: var(--space-32);
-}
-
-.contact-form-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-12);
-  margin-bottom: var(--space-20);
-}
-
-.contact-form-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
-  line-height: 1.3;
-}
-
+/* Contact Form (fields live inside callout content on the contact page) */
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -493,6 +475,144 @@
 .btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* Back to Top (hidden until scrolled; out of tab order while hidden) */
+.to-top-btn {
+  position: fixed;
+  right: var(--space-20);
+  bottom: var(--space-24);
+  z-index: 90;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.to-top-btn:hover {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  border-color: var(--color-border-focus);
+}
+
+.to-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.to-top-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Custom Select (progressive enhancement over the native select:
+   the native select stays the submitted value carrier) */
+.custom-select {
+  position: relative;
+}
+
+.native-select-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.custom-select-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-12);
+  font: inherit;
+  font-size: 0.92rem;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-base);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+.custom-select-btn[hidden] {
+  display: none;
+}
+
+.custom-select-btn:hover {
+  border-color: var(--color-border-focus);
+}
+
+.custom-select-btn svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+}
+
+.custom-select-btn[aria-expanded="true"] {
+  border-color: var(--color-border-focus);
+}
+
+.custom-select-btn[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.custom-select-list {
+  position: absolute;
+  top: calc(100% + var(--space-8));
+  left: 0;
+  right: 0;
+  z-index: 50;
+  list-style: none;
+  margin: 0;
+  padding: var(--space-8);
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card-hover);
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.custom-select-list [role="option"] {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+}
+
+.custom-select-list [role="option"]:hover,
+.custom-select-list [role="option"]:focus {
+  background-color: var(--color-surface-elevated);
+  color: var(--color-text-primary);
+  outline: none;
+}
+
+.custom-select-list [role="option"][aria-selected="true"] {
+  color: var(--color-primary);
+  font-weight: 600;
 }
 
 /* Honeypot field: hidden from sighted users, present for spam bots */
