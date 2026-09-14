@@ -9,7 +9,7 @@
   
   <link rel="stylesheet" href="../css/tokens.css?v=14">
   <link rel="stylesheet" href="../css/base.css?v=14">
-  <link rel="stylesheet" href="../css/components.css?v=16">
+  <link rel="stylesheet" href="../css/components.css?v=17">
   <link rel="stylesheet" href="../css/pages.css?v=14">
 </head>
 <body>
@@ -83,7 +83,7 @@
         </p>
       </header>
 
-      <!-- Contact Form (UI only: backend endpoint not wired yet, no email in markup) -->
+      <!-- Contact form: posts to Web3Forms; inbox address lives in dashboard, only the domain-locked key is here -->
       <section class="card contact-form-card" aria-labelledby="contact-form-title">
         <div class="contact-form-header">
           <div class="icon-box" aria-hidden="true">
@@ -102,6 +102,8 @@
           <input type="hidden" name="subject" value="New message from Magnet Search contact page">
           <input type="hidden" name="from_name" value="Magnet Search contact form">
           <input type="hidden" name="replyto" value="">
+          <!-- No-JS fallback: Web3Forms redirects here after a plain POST (ignored by the AJAX flow) -->
+          <input type="hidden" name="redirect" value="https://sruclabs.github.io/magnetsearch/contact/sent/">
           <div class="form-grid">
             <div class="form-field">
               <label for="contact-name">Name</label>
@@ -124,7 +126,8 @@
             </div>
             <div class="form-field form-field-full">
               <label for="contact-message">Message</label>
-              <textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="2000" placeholder="How can we help?" required></textarea>
+              <textarea id="contact-message" name="message" rows="6" minlength="10" maxlength="2000" placeholder="How can we help?" aria-describedby="contact-message-count" required></textarea>
+              <div class="form-hint"><span id="contact-message-count" data-char-count>0 / 2000</span></div>
             </div>
           </div>
 
@@ -198,7 +201,7 @@
 
       <div class="footer-bottom">
         <div>&copy; 2026 Magnet Search. All rights reserved.</div>
-        <div>Support channels will go live with the public release.</div>
+        <div>Messages sent through this form go straight to our support inbox.</div>
       </div>
     </div>
   </footer>

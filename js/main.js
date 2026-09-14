@@ -190,5 +190,19 @@ document.addEventListener('DOMContentLoaded', () => {
         delete statusEl.dataset.state;
       }
     });
+
+    // Live character count for the message field
+    const messageField = contactForm.querySelector('#contact-message');
+    const charCount = contactForm.querySelector('[data-char-count]');
+    const updateCount = () => {
+      if (!messageField || !charCount) return;
+      const max = messageField.getAttribute('maxlength') || 2000;
+      charCount.textContent = `${messageField.value.length} / ${max}`;
+    };
+    if (messageField && charCount) {
+      messageField.addEventListener('input', updateCount);
+      contactForm.addEventListener('reset', updateCount);
+      updateCount();
+    }
   }
 });
