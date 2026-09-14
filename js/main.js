@@ -99,4 +99,68 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => el.classList.add('active'));
     lineDrawElements.forEach(el => el.classList.add('active'));
   }
+
+  // 4. Contact form (Web3Forms): async submit with status feedback
+  const contactForm = document.querySelector('[data-contact-form]');
+  if (contactForm) {
+    const statusEl = contactForm.querySelector('.form-status');
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+
+    const setStatus = (msg, state) => {
+      if (!statusEl) return;
+      statusEl.textContent = msg;
+      statusEl.hidden = false;
+      if (state) {
+        statusEl.dataset.state = state;
+      } else {
+        delete statusEl.dataset.state;
+      }
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot filled => spam bot: pretend success, send nothing
+      if (contactForm.botcheck && contactForm.botcheck.value) {
+        setStatus('Thanks — your message was sent.', 'success');
+        contactForm.reset();
+        return;
+      }
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      if (submitBtn) submitBtn.disabled = true;
+      setStatus('Sending…');
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: new FormData(contactForm),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success) {
+          setStatus('Thanks — your message was sent.', 'success');
+          contactForm.reset();
+        } else {
+          setStatus(data.message || 'Something went wrong. Please try again later.', 'error');
+        }
+      } catch (err) {
+        setStatus('Could not reach the mail service. Check your connection and try again.', 'error');
+      } finally {
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+
+    contactForm.addEventListener('reset', () => {
+      if (statusEl) {
+        statusEl.textContent = '';
+        statusEl.hidden = true;
+        delete statusEl.dataset.state;
+      }
+    });
+  }
 });
