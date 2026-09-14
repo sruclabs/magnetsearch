@@ -7,12 +7,24 @@
   <meta name="description" content="Fast, private multi-source magnet search and discovery utility for Android. Search public indexes and open digital archives from a unified interface with zero server tracking.">
   <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg">
   
-  <link rel="stylesheet" href="css/tokens.css?v=13">
-  <link rel="stylesheet" href="css/base.css?v=13">
-  <link rel="stylesheet" href="css/components.css?v=13">
-  <link rel="stylesheet" href="css/pages.css?v=13">
+  <link rel="stylesheet" href="css/tokens.css?v=18">
+  <link rel="stylesheet" href="css/base.css?v=18">
+  <link rel="stylesheet" href="css/components.css?v=18">
+  <link rel="stylesheet" href="css/pages.css?v=18">
+  <meta name="theme-color" content="#08090A">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Magnet Search">
+  <meta property="og:title" content="Magnet Search — Fast, Private Multi-Source Magnet Search for Android">
+  <meta property="og:description" content="Fast, private multi-source magnet search and discovery utility for Android. Search public indexes and open digital archives from a unified interface with zero server tracking.">
+  <meta property="og:url" content="https://sruclabs.github.io/magnetsearch/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Magnet Search — Fast, Private Multi-Source Magnet Search for Android">
+  <meta name="twitter:description" content="Fast, private multi-source magnet search for Android. No tracking, no middleman servers.">
+  <!-- TODO: add og:image + twitter:image (1200x630 PNG at assets/brand/og-cover.png) and apple-touch-icon (180x180 PNG) once exported -->
+  <noscript><style>.reveal,.line-draw{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <!-- Top Navigation -->
   <header class="site-header">
     <div class="container">
@@ -74,7 +86,7 @@
     <a href="privacy/" class="nav-link">Privacy Policy</a>
   </div>
 
-  <main>
+  <main id="main">
     <!-- Hero Section -->
     <section class="hero-section">
       <div class="container">
@@ -416,7 +428,7 @@
           </div>
         </div>
 
-        <div class="disclaimer-card" style="margin-top: var(--space-32); text-align: center;">
+        <div class="disclaimer-card disclaimer-center">
           Magnet Search doesn't host or download files. It simply searches public third-party indexes for you.
         </div>
       </div>
@@ -427,7 +439,7 @@
       <div class="container">
         <div class="callout-box">
           <div class="callout-content">
-            <span class="badge badge-blue" style="margin-bottom: var(--space-12);">Built-in Security</span>
+            <span class="badge badge-blue title-push">Built-in Security</span>
             <h2>On-Device Privacy Protection</h2>
             <p>
               Magnet Search never saves your queries to any server. You can also turn on on-device privacy settings to lock the app and keep your searches private.
@@ -442,7 +454,7 @@
                 <span><strong>No Account Needed:</strong> You don't have to create an account, enter an email, or sign in to use the app.</span>
               </div>
             </div>
-            <div class="disclaimer-card" style="margin-top: var(--space-20);">
+            <div class="disclaimer-card disclaimer-tight">
               Privacy Protection keeps your searches and saved links safe on your phone. It doesn't hide your internet traffic from your ISP or act as a VPN.
             </div>
           </div>
@@ -505,7 +517,7 @@
       <div class="container">
         <div class="card card-gold premium-home-teaser">
           <div class="teaser-content">
-            <span class="badge badge-gold" style="margin-bottom: var(--space-12);">Optional Upgrade</span>
+            <span class="badge badge-gold title-push">Optional Upgrade</span>
             <h2>Magnet Search Premium</h2>
             <p>
               Get more out of your searches with unlimited saved favorites, advanced sorting by seeders and size, 6 premium themes (including AMOLED Pure Black), and zero ads.
@@ -562,6 +574,6 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=3"></script>
 </body>
 </html>

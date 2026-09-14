@@ -127,10 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Honeypot filled => spam bot: pretend success, send nothing
+      // Honeypot filled => spam bot: pretend success, send nothing.
+      // NOTE: reset() fires the 'reset' listeners (which clear the status),
+      // so reset first and set the status after.
       if (contactForm.botcheck && contactForm.botcheck.value) {
-        setStatus('Thanks — your message was sent.', 'success');
         contactForm.reset();
+        setStatus('Thanks — your message was sent.', 'success');
         return;
       }
 
@@ -168,8 +170,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         const data = await res.json().catch(() => ({}));
         if (res.ok && data.success) {
-          setStatus('Thanks — your message was sent.', 'success');
           contactForm.reset();
+          setStatus('Thanks — your message was sent.', 'success');
         } else {
           setStatus(data.message || 'Something went wrong. Please try again later.', 'error');
         }

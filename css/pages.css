@@ -1,3 +1,80 @@
+/* Page Layout Helpers (replacing one-off inline styles) */
+.page-wrap {
+  padding-top: var(--space-48);
+  padding-bottom: var(--space-64);
+}
+
+.page-header-compact {
+  margin-bottom: var(--space-32);
+}
+
+.page-intro-wide {
+  max-width: 760px;
+  margin-bottom: var(--space-32);
+}
+
+.title-push {
+  margin-bottom: var(--space-12);
+}
+
+.section-flush {
+  padding-bottom: 0;
+}
+
+.section-tag-gold {
+  color: var(--color-premium-gold);
+}
+
+.disclaimer-left {
+  text-align: left;
+  margin-bottom: var(--space-32);
+}
+
+.disclaimer-center {
+  margin-top: var(--space-32);
+  text-align: center;
+}
+
+.disclaimer-tight {
+  margin-top: var(--space-20);
+}
+
+.section-closer {
+  margin-bottom: var(--space-64);
+}
+
+.billing-note {
+  max-width: 720px;
+  margin: var(--space-40) auto 0;
+  text-align: left;
+}
+
+.confirm-card {
+  max-width: 560px;
+  text-align: center;
+  margin-top: var(--space-32);
+}
+
+.confirm-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto var(--space-16);
+  color: var(--color-seed-green);
+}
+
+.confirm-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.confirm-lead {
+  margin-bottom: var(--space-24);
+}
+
+.actions-center {
+  justify-content: center;
+}
+
 /* ==================================================
    Hero Section (Home) - Clear editorial hierarchy
    ================================================== */
