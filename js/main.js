@@ -105,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     const statusEl = contactForm.querySelector('.form-status');
     const submitBtn = contactForm.querySelector('button[type="submit"]');
+    const originalBtnLabel = submitBtn ? submitBtn.innerHTML : '';
+    if (statusEl) statusEl.setAttribute('tabindex', '-1');
 
     const setStatus = (msg, state) => {
       if (!statusEl) return;
@@ -114,6 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
         statusEl.dataset.state = state;
       } else {
         delete statusEl.dataset.state;
+      }
+      // Bring terminal feedback into view and to assistive tech
+      if (state === 'success' || state === 'error') {
+        statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        statusEl.focus({ preventScroll: true });
       }
     };
 
@@ -132,7 +139,10 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = 'Sending…';
+      }
       setStatus('Sending…');
 
       // Shape the inbox appearance: informative subject, sender name, direct reply-to.
@@ -166,7 +176,10 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {
         setStatus('Could not reach the mail service. Check your connection and try again.', 'error');
       } finally {
-        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnLabel;
+        }
       }
     });
 

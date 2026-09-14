@@ -462,13 +462,24 @@
   color: var(--color-text-secondary);
 }
 
+.form-status[data-state] {
+  padding: var(--space-12) var(--space-16);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-elevated);
+}
+
 .form-status[data-state="success"] {
   color: var(--color-seed-green);
+  border-color: rgba(16, 185, 129, 0.4);
+  background-color: rgba(16, 185, 129, 0.1);
   font-weight: 600;
 }
 
 .form-status[data-state="error"] {
   color: var(--color-leech-orange);
+  border-color: rgba(245, 158, 11, 0.4);
+  background-color: rgba(245, 158, 11, 0.1);
   font-weight: 600;
 }
 
