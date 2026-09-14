@@ -61,17 +61,17 @@
   /* Surfaces & Foundation (Reference Dark Palette: #08090A Background, #111214 Surface) */
   --color-bg-base: #08090A;
   --color-bg-dark: #0D0E10;
-  --color-surface-card: #111214;
+  --color-surface-card: #141619;
   --color-surface-elevated: #181A1D;
   --color-surface-variant: #202226;
 
-  /* Structural Dividers & Precision Borders (rgba(255,255,255,0.10)) */
-  --color-border: rgba(255, 255, 255, 0.10);
-  --color-border-subtle: rgba(255, 255, 255, 0.06);
+  /* Structural Dividers & Precision Borders (rgba(255,255,255,0.14)) */
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-border-focus: #828FFF;
 
   /* Architectural Grid Lines (Clean and subtle on #08090A, 55px size) */
-  --grid-line: rgba(255, 255, 255, 0.05);
+  --grid-line: rgba(255, 255, 255, 0.07);
   --grid-line-glow: rgba(94, 106, 210, 0.08);
   --grid-size: 55px;
   --font-family-mono: ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, Consolas, monospace;
@@ -80,7 +80,8 @@
   --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --color-text-primary: #F5F5F5;
   --color-text-secondary: #8A8F98;
-  --color-text-muted: #626773;
+  --color-text-muted: #7A818C;
+  --color-text-placeholder: #8A8F98;
 
   /* Premium Gold Suite */
   --color-premium-gold: #FFB300;
@@ -170,6 +171,7 @@
   --color-text-primary: #0A0F1D;
   --color-text-secondary: #334155;
   --color-text-muted: #475569;
+  --color-text-placeholder: #64748B;
 
   /* Premium Gold Suite (Preserved intact for Premium branding, crisp contrast) */
   --color-premium-gold: #D97706;

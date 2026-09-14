@@ -14,6 +14,9 @@ html {
   background-color: var(--color-bg-base);
   color: var(--color-text-primary);
   scroll-behavior: smooth;
+  /* Offset every in-page anchor landing (#features, #main, #billing-note, …)
+     below the sticky header, plus breathing room. */
+  scroll-padding-top: calc(var(--nav-height, 64px) + var(--space-16));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -56,6 +59,11 @@ a {
 
 a:hover {
   color: var(--color-accent-cyan);
+}
+
+::selection {
+  background-color: rgba(94, 106, 210, 0.4);
+  color: #FFFFFF;
 }
 
 a:focus-visible,
