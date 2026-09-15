@@ -1,11 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 0 72 94" width="108" height="108" fill="none">
-  <!-- White tile: single favicon file that reads on light and dark browser tabs -->
-  <rect x="14" y="0" width="72" height="94" rx="18" fill="#FFFFFF" />
-  <!-- Solid pole caps: full prong width, short magnet tips -->
-  <rect x="19" y="10" width="20" height="22" rx="3" fill="#000000" />
-  <rect x="61" y="10" width="20" height="22" rx="3" fill="#000000" />
-  <!-- Outer U: edges flush with pole outer edges -->
-  <path d="M21.5 30 V52 A28.5 28.5 0 0 0 78.5 52 V30" stroke="#000000" stroke-width="5" fill="none" />
-  <!-- Inner U: edges flush with pole inner edges -->
-  <path d="M36.5 30 V52 A13.5 13.5 0 0 0 63.5 52 V30" stroke="#000000" stroke-width="5" fill="none" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 208" width="200" height="208" fill="none">
+  <style>
+    .bg { fill: #FFFFFF; }
+    .ink { fill: #000000; }
+    .ink-stroke { stroke: #000000; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #0A0A0A; }
+      .ink { fill: #FFFFFF; }
+      .ink-stroke { stroke: #FFFFFF; }
+    }
+  </style>
+  <!-- Tile: white on light tabs, near-black on dark tabs -->
+  <rect class="bg" x="0" y="0" width="200" height="208" rx="22" />
+  <!-- Solid pole caps: full prong width, square bottoms merge into the outline -->
+  <path class="ink" d="M24 84 L24 31.5 Q24 30 25.5 30 L50.5 30 Q52 30 52 31.5 L52 84 Z" />
+  <path class="ink" d="M148 84 L148 31.5 Q148 30 149.5 30 L174.5 30 Q176 30 176 31.5 L176 84 Z" />
+  <!-- Outer U -->
+  <path class="ink-stroke" d="M29 80 V116 A71 71 0 0 0 171 116 V80" stroke-width="10" fill="none" />
+  <!-- Inner U -->
+  <path class="ink-stroke" d="M57 80 V116 A43 43 0 0 0 143 116 V80" stroke-width="10" fill="none" />
 </svg>

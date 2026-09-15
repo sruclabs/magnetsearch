@@ -33,19 +33,10 @@
   flex-shrink: 0;
 }
 
-.brand-icon {
-  width: 32px;
+.brand-lockup {
   height: 32px;
-  border-radius: var(--radius-sm);
+  width: auto;
   flex-shrink: 0;
-}
-
-.brand-text {
-  letter-spacing: -0.01em;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 /* Theme-adaptive mark: white ink by default (dark), black ink on light.
@@ -336,8 +327,7 @@
   max-width: 360px;
 }
 
-.footer-brand .brand-icon {
-  width: 28px;
+.footer-brand .brand-lockup {
   height: 28px;
 }
 
