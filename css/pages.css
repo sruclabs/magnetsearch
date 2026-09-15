@@ -545,7 +545,15 @@
 .legal-meta {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-8);
+  row-gap: var(--space-8);
+  column-gap: var(--space-8);
+  min-width: 0;
+}
+
+/* Separates the date row from the intro copy above it.
+   Scoped to page-header so cards/lists are untouched. */
+.page-header .legal-meta {
+  margin-top: var(--space-16);
 }
 
 /* Sources Section Cards: Clean 2x2 grid on desktop, single-column on mobile */
@@ -898,6 +906,12 @@
 
 .page-title {
   margin-bottom: var(--space-12);
+}
+
+/* Stacks intro paragraphs with breathing room. Margin-only (no fixed
+   heights/widths) so 320px mobile reflows naturally. */
+.page-header .lead + .lead {
+  margin-top: var(--space-12);
 }
 
 .legal-notice-banner {
