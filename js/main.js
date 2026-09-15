@@ -76,8 +76,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Scroll Reveal & Progressive Line Draw via IntersectionObserver
   const revealElements = document.querySelectorAll('.reveal');
   const lineDrawElements = document.querySelectorAll('.line-draw');
+  const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  if ('IntersectionObserver' in window) {
+  // Stagger sibling reveals so grids cascade instead of flashing at once.
+  const staggerGroups = new Map();
+  revealElements.forEach((el) => {
+    const key = el.parentElement;
+    if (!staggerGroups.has(key)) staggerGroups.set(key, []);
+    staggerGroups.get(key).push(el);
+  });
+  staggerGroups.forEach((group) => {
+    if (group.length < 2) return;
+    group.forEach((el, i) => {
+      if (el.hasAttribute('data-reveal-delay')) return;
+      el.style.setProperty('--reveal-delay', `${Math.min(i, 5) * 60}ms`);
+    });
+  });
+
+  if ('IntersectionObserver' in window && !reduceMotion) {
     const observerOptions = {
       threshold: 0.15,
       rootMargin: '0px 0px -40px 0px'
@@ -119,7 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       // Bring terminal feedback into view and to assistive tech
       if (state === 'success' || state === 'error') {
-        statusEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        statusEl.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest' });
         statusEl.focus({ preventScroll: true });
       }
     };
@@ -212,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const toTopBtn = document.querySelector('.to-top-btn');
   if (toTopBtn) {
     const showAfter = 600;
-    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const updateToTop = () => {
       toTopBtn.classList.toggle('show', window.scrollY > showAfter);
     };
@@ -223,110 +238,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Custom topic picker: enhances the native select on fine-pointer devices.
-  // The native select stays the submitted value carrier (no-JS POST and native
-  // validation keep working); the custom UI is presentation and interaction only.
-  const customSelect = document.querySelector('[data-custom-select]');
-  const nativeTopic = document.getElementById('contact-topic');
-  const finePointer = window.matchMedia && window.matchMedia('(pointer: fine)').matches;
-  if (customSelect && nativeTopic && finePointer) {
-    const selectBtn = customSelect.querySelector('.custom-select-btn');
-    const selectList = customSelect.querySelector('.custom-select-list');
-    const selectValue = customSelect.querySelector('#custom-select-value');
-    const selectOptions = Array.from(selectList.querySelectorAll('[role="option"]'));
-    let typeBuffer = '';
-    let typeTimer = null;
-
-    // Reveal the custom UI; take the native select out of the tab order
-    nativeTopic.classList.add('native-select-hidden');
-    nativeTopic.tabIndex = -1;
-    nativeTopic.setAttribute('aria-hidden', 'true');
-    selectBtn.hidden = false;
-
-    const markSelected = () => {
-      selectOptions.forEach((opt) => {
-        const selected = opt.dataset.value === nativeTopic.value;
-        opt.setAttribute('aria-selected', selected ? 'true' : 'false');
-        if (selected) selectValue.textContent = opt.textContent;
-      });
-    };
-
-    const setOpen = (open) => {
-      selectBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      selectList.hidden = !open;
-    };
-
-    const chooseOption = (opt) => {
-      nativeTopic.value = opt.dataset.value;
-      markSelected();
-      setOpen(false);
-      selectBtn.focus();
-    };
-
-    selectBtn.addEventListener('click', () => {
-      const willOpen = selectList.hidden;
-      setOpen(willOpen);
-      if (willOpen) {
-        const current = selectList.querySelector('[aria-selected="true"]');
-        if (current) current.focus();
+  // 6. Buttery in-page scrolling: offset below the sticky header, close the
+  // mobile drawer first, keep the URL hash in sync, move focus for AT.
+  const scrollToTarget = (target) => {
+    const headerOffset = (document.querySelector('.site-header')?.offsetHeight || 64) + 16;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(top, 0), behavior: reduceMotion ? 'auto' : 'smooth' });
+    if (target.id) {
+      try {
+        history.pushState(null, '', `#${target.id}`);
+      } catch (e) {
+        // Ignore history errors (file://, private mode)
       }
-    });
+    }
+    if (!/^(?:A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(target.tagName)) {
+      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+    }
+    target.focus({ preventScroll: true });
+  };
 
-    selectBtn.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-        setOpen(true);
-        const current = selectList.querySelector('[aria-selected="true"]');
-        if (current) current.focus();
-      } else if (e.key === 'Escape') {
-        setOpen(false);
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    const hash = link.getAttribute('href');
+    if (!hash || hash.length < 2) return;
+    link.addEventListener('click', (e) => {
+      const target = document.querySelector(hash);
+      if (!target) return;
+      e.preventDefault();
+      const drawer = document.querySelector('.mobile-nav-drawer');
+      const toggle = document.querySelector('.mobile-nav-toggle');
+      if (drawer && drawer.classList.contains('open')) {
+        drawer.classList.remove('open');
+        toggle?.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       }
+      scrollToTarget(target);
     });
+  });
 
-    selectOptions.forEach((opt) => {
-      opt.tabIndex = -1;
-      opt.addEventListener('click', () => chooseOption(opt));
-      opt.addEventListener('keydown', (e) => {
-        const i = selectOptions.indexOf(opt);
-        if (e.key === 'ArrowDown') {
-          e.preventDefault();
-          (selectOptions[i + 1] || selectOptions[0]).focus();
-        } else if (e.key === 'ArrowUp') {
-          e.preventDefault();
-          (selectOptions[i - 1] || selectOptions[selectOptions.length - 1]).focus();
-        } else if (e.key === 'Home') {
-          e.preventDefault();
-          selectOptions[0].focus();
-        } else if (e.key === 'End') {
-          e.preventDefault();
-          selectOptions[selectOptions.length - 1].focus();
-        } else if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          chooseOption(opt);
-        } else if (e.key === 'Escape') {
-          setOpen(false);
-          selectBtn.focus();
-        } else if (e.key.length === 1) {
-          typeBuffer += e.key.toLowerCase();
-          clearTimeout(typeTimer);
-          typeTimer = setTimeout(() => { typeBuffer = ''; }, 500);
-          const match = selectOptions.find((o) => o.textContent.toLowerCase().startsWith(typeBuffer));
-          if (match) match.focus();
-        }
-      });
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!customSelect.contains(e.target)) setOpen(false);
-    });
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !selectList.hidden) {
-        setOpen(false);
-        selectBtn.focus();
-      }
-    });
-
-    markSelected();
+  // Land correctly on deep links (e.g. premium/#premium-features).
+  if (window.location.hash) {
+    const initial = document.querySelector(window.location.hash);
+    if (initial) {
+      setTimeout(() => {
+        const headerOffset = (document.querySelector('.site-header')?.offsetHeight || 64) + 16;
+        const top = initial.getBoundingClientRect().top + window.scrollY - headerOffset;
+        window.scrollTo({ top: Math.max(top, 0), behavior: 'auto' });
+      }, 60);
+    }
   }
 });
