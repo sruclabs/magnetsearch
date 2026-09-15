@@ -1,6 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="14 0 72 94" width="108" height="108" fill="none">
-  <!-- White tile: single favicon file that reads on light and dark browser tabs -->
-  <rect x="14" y="0" width="72" height="94" rx="18" fill="#FFFFFF" />
   <!-- Solid pole caps: full prong width, short magnet tips -->
   <rect x="19" y="10" width="20" height="22" rx="3" fill="#000000" />
   <rect x="61" y="10" width="20" height="22" rx="3" fill="#000000" />

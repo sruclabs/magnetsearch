@@ -25,7 +25,7 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: var(--space-12);
+  gap: var(--space-6, 6px);
   font-weight: 700;
   font-size: 1.15rem;
   color: var(--color-text-primary);
@@ -34,8 +34,8 @@
 }
 
 .brand-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-sm);
   flex-shrink: 0;
 }
@@ -46,6 +46,20 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* Theme-adaptive mark: white ink by default (dark), black ink on light.
+   One of the pair is always hidden, so the lockup layout never shifts. */
+.brand-icon--for-light {
+  display: none;
+}
+
+[data-theme="light"] .brand-icon--for-light {
+  display: block;
+}
+
+[data-theme="light"] .brand-icon--for-dark {
+  display: none;
 }
 
 /* Desktop Navigation */
@@ -320,6 +334,11 @@
 
 .footer-brand {
   max-width: 360px;
+}
+
+.footer-brand .brand-icon {
+  width: 28px;
+  height: 28px;
 }
 
 .footer-brand p {

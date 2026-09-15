@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="14 0 72 94" width="108" height="108" fill="none">
+  <!-- Solid pole caps: full prong width, short magnet tips -->
+  <rect x="19" y="10" width="20" height="22" rx="3" fill="#F5F5F5" />
+  <rect x="61" y="10" width="20" height="22" rx="3" fill="#F5F5F5" />
+  <!-- Outer U: edges flush with pole outer edges -->
+  <path d="M21.5 30 V52 A28.5 28.5 0 0 0 78.5 52 V30" stroke="#F5F5F5" stroke-width="5" fill="none" />
+  <!-- Inner U: edges flush with pole inner edges -->
+  <path d="M36.5 30 V52 A13.5 13.5 0 0 0 63.5 52 V30" stroke="#F5F5F5" stroke-width="5" fill="none" />
+</svg>
