@@ -7,11 +7,8 @@
   <meta name="description" content="Fast, private multi-source magnet search and discovery utility for Android. Search public indexes and open digital archives from a unified interface with zero server tracking.">
   <link rel="icon" type="image/svg+xml" href="assets/brand/favicon.svg?v=4">
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png?v=4">
-  
-  <link rel="stylesheet" href="css/tokens.css?v=41">
-  <link rel="stylesheet" href="css/base.css?v=41">
-  <link rel="stylesheet" href="css/components.css?v=41">
-  <link rel="stylesheet" href="css/pages.css?v=41">
+
+  <link rel="stylesheet" href="css/style.css?v=53">
   <meta name="theme-color" content="#08090A">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Magnet Search">
@@ -22,7 +19,7 @@
   <meta name="twitter:title" content="Magnet Search — Fast, Private Multi-Source Magnet Search for Android">
   <meta name="twitter:description" content="Fast, private multi-source magnet search for Android. No tracking, no middleman servers.">
   <!-- TODO: add og:image + twitter:image (1200x630 PNG at assets/brand/og-cover.png) once exported -->
-  <noscript><style>.reveal,.line-draw{opacity:1 !important;transform:none !important;}</style></noscript>
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -30,8 +27,8 @@
   <header class="site-header">
     <div class="container">
       <a href="./" class="brand" aria-label="Magnet Search Home">
-        <img src="assets/brand/lockup-white.svg" alt="" class="brand-lockup brand-icon--for-dark" width="166" height="32">
-        <img src="assets/brand/lockup-black.svg" alt="" class="brand-lockup brand-icon--for-light" width="166" height="32">
+        <img src="assets/brand/lockup-white.svg?v=4" alt="" class="brand-lockup brand-icon--for-dark" width="166" height="32">
+        <img src="assets/brand/lockup-black.svg?v=4" alt="" class="brand-lockup brand-icon--for-light" width="166" height="32">
       </a>
 
       <!-- Desktop Nav -->
@@ -80,11 +77,13 @@
 
   <!-- Mobile Drawer -->
   <div class="mobile-nav-drawer" aria-label="Mobile Navigation">
-    <a href="./" class="nav-link active">Home</a>
-    <a href="premium/" class="nav-link nav-link-premium">Premium</a>
-    <a href="contact/" class="nav-link">Contact Us</a>
-    <a href="terms/" class="nav-link">Terms</a>
-    <a href="privacy/" class="nav-link">Privacy Policy</a>
+    <div class="container">
+      <a href="./" class="nav-link active">Home</a>
+      <a href="premium/" class="nav-link nav-link-premium">Premium</a>
+      <a href="contact/" class="nav-link">Contact Us</a>
+      <a href="terms/" class="nav-link">Terms</a>
+      <a href="privacy/" class="nav-link">Privacy Policy</a>
+    </div>
   </div>
 
   <main id="main">
@@ -105,7 +104,7 @@
               See Features
             </a>
             <a href="premium/" class="btn btn-secondary">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-premium-gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--gold-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
               View Premium Plans
@@ -151,7 +150,7 @@
                   <span class="meta-stat">5.8 GB</span>
                   <span class="meta-stat meta-seeds">▲ 1,840</span>
                   <span class="meta-stat meta-leech">▼ 112</span>
-                  <span class="meta-hash code-val">xt=urn:btih:3b8c…9f12</span>
+                  <span class="meta-hash">xt=urn:btih:3b8c…9f12</span>
                 </div>
               </div>
               <div class="result-actions">
@@ -170,7 +169,7 @@
                   <span class="meta-stat">1.4 GB</span>
                   <span class="meta-stat meta-seeds">▲ 86</span>
                   <span class="meta-stat meta-leech">▼ 4</span>
-                  <span class="meta-hash code-val">xt=urn:btih:7d2a…4e81</span>
+                  <span class="meta-hash">xt=urn:btih:7d2a…4e81</span>
                 </div>
               </div>
               <div class="result-actions">
@@ -189,7 +188,7 @@
                   <span class="meta-stat">420 MB</span>
                   <span class="meta-stat meta-seeds">▲ 41</span>
                   <span class="meta-stat meta-leech">▼ 2</span>
-                  <span class="meta-hash code-val">xt=urn:btih:1a0f…c634</span>
+                  <span class="meta-hash">xt=urn:btih:1a0f…c634</span>
                 </div>
               </div>
               <div class="result-actions">
@@ -440,7 +439,7 @@
       <div class="container">
         <div class="callout-box">
           <div class="callout-content">
-            <span class="badge badge-blue title-push">Built-in Security</span>
+            <span class="badge badge-blue">Built-in Security</span>
             <h2>On-Device Privacy Protection</h2>
             <p>
               Magnet Search never saves your queries to any server. You can also turn on on-device privacy settings to lock the app and keep your searches private.
@@ -543,8 +542,8 @@
       <div class="footer-top">
         <div class="footer-brand">
           <a href="./" class="brand">
-            <img src="assets/brand/lockup-white.svg" alt="" class="brand-lockup brand-icon--for-dark" width="145" height="28">
-            <img src="assets/brand/lockup-black.svg" alt="" class="brand-lockup brand-icon--for-light" width="145" height="28">
+            <img src="assets/brand/lockup-white.svg?v=4" alt="" class="brand-lockup brand-icon--for-dark" width="145" height="28">
+            <img src="assets/brand/lockup-black.svg?v=4" alt="" class="brand-lockup brand-icon--for-light" width="145" height="28">
           </a>
           <p>Fast, private, multi-source magnet search app for Android.</p>
         </div>
@@ -581,6 +580,6 @@
     </svg>
   </button>
 
-  <script src="js/main.js?v=7"></script>
+  <script src="js/main.js?v=9"></script>
 </body>
 </html>
